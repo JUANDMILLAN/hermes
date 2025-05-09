@@ -12,7 +12,7 @@ class ControladorUsuarios{
                 $tabla = "usuarios";
                 $item = "nombre_usuario";
                 $valor = $_POST["ingUsuario"];
-
+                }
                 $respuesta = ModeloUsuarios::mdlMostrarUsuarios($tabla, $item, $valor);
                 if (is_array($respuesta)) {
 
