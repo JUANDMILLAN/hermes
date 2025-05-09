@@ -85,17 +85,24 @@
                 <td>' . $usuario["nombre_rol"] . '</td>
                 <td>' . $usuario["codigo"] . '</td>
                 <td>';
-            if ($usuario["estado"] == "activo") {
-              echo '<button class="btn btn-success btn-xs btnActivarUsuario" idSede="' . $usuario["id_usuario"] . '" estadoSede="inactivo"">Activo</button>';
-            } else {
-              echo '<button class="btn btn-danger btn-xs btnActivarUsuario" idSede="' . $usuario["id_usuario"] . '" estadoSede="activo">Inactivo</button></td>';
-            };
-            echo '<td>
+                if ($usuario["estado"] == "activo") {
+                  echo '<button class="btn btn-success btn-xs btnActivarUsuario" idSede="' . $usuario["id_usuario"] . '" estadoSede="inactivo">Activo</button>';
+                } elseif ($usuario["estado"] == "inactivo") {
+                  echo '<button class="btn btn-danger btn-xs btnActivarUsuario" idSede="' . $usuario["id_usuario"] . '" estadoSede="activo">Inactivo</button>';
+                } elseif ($usuario["estado"] == "advertido") {
+                  echo '<button class="btn btn-warning btn-xs btnActivarUsuario" idSede="' . $usuario["id_usuario"] . '" estadoSede="activo">Advertido</button>';
+                } elseif ($usuario["estado"] == "penalizado") {
+                  echo '<button class="btn btn-info btn-xs btnActivarUsuario" idSede="' . $usuario["id_usuario"] . '" estadoSede="activo">Penalizado</button>';
+                } else {
+                  echo '<button class="btn btn-secondary btn-xs" disabled>Desconocido</button>';
+                }
+                
+                echo '<td>
                   <div class="btn-group">
                     <button title="Consultar detalles de usuario" class="btn btn-default btn-xs btnConsultarUsuario"  idUsuario="' . $usuario["id_usuario"] . '" data-toggle="modal" data-target="#modalConsularUsuario"><i class="fas fa-eye"></i></button>
-
+                
                     <button title="Editar usuario" class="btn btn-default btn-xs btnEditarUsuario" idUsuario="' . $usuario["id_usuario"] . '" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fas fa-edit"></i></button>
-
+                
                     <button title="Solicitudes del usuario" class="btn btn-default btn-xs"><i class="fas fa-laptop"></i></button>
                     <button title="??" class="btn btn-default btn-xs"><i class="fas fa-file"></i></button>
                   </div>
