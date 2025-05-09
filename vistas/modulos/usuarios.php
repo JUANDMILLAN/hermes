@@ -85,13 +85,13 @@
                 <td>' . $usuario["nombre_rol"] . '</td>
                 <td>' . $usuario["codigo"] . '</td>
                 <td>';
-                if ($usuario["estado"] == "activo") {
+                if ($usuario["estado"] == "Activo") {
                   echo '<button class="btn btn-success btn-xs btnActivarUsuario" idSede="' . $usuario["id_usuario"] . '" estadoSede="inactivo">Activo</button>';
-                } elseif ($usuario["estado"] == "inactivo") {
+                } elseif ($usuario["estado"] == "Inactivo") {
                   echo '<button class="btn btn-danger btn-xs btnActivarUsuario" idSede="' . $usuario["id_usuario"] . '" estadoSede="activo">Inactivo</button>';
-                } elseif ($usuario["estado"] == "sancionado") {
+                } elseif ($usuario["estado"] == "Alertado") {
                   echo '<button class="btn btn-warning btn-xs btnActivarUsuario" idSede="' . $usuario["id_usuario"] . '" estadoSede="activo">Sancionado</button>';
-                } elseif ($usuario["estado"] == "alertado") {
+                } elseif ($usuario["estado"] == "Penalizado") {
                   echo '<button class="btn btn-info btn-xs btnActivarUsuario" idSede="' . $usuario["id_usuario"] . '" estadoSede="activo">Alertado</button>';
                 } else {
                   echo '<button class="btn btn-secondary btn-xs" disabled>Desconocido</button>';
